@@ -1,0 +1,1212 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+G = nx.Graph()
+
+#cities in here:
+#Assuit, Manqabad, Asswan, Damietta, Alsharqiah, Dayrut, SahelSelem, Alex, Al-Qusia, Abnob,
+#AlwadiAljadid, Manfalout, Musrie, AbuTig, Qena, Minya, Alphath, Mansoura, Sohag, Cairo, Damanhour
+
+
+
+G.add_nodes_from([
+    ('NourhanS',{"city":"Assuit"}),
+    ('Nehal',{"city":"Assuit"}),
+    ('Sama',{"city":"Assuit"}),
+    ('Hadeer',{"city":"Assuit"}),
+    ('RaniaM',{"city":"Manqabad"}),
+    
+])
+edges = [('Nehal','Sama'),('Nehal','RaniaM'),('Nehal','NourhanS'),('Nehal','Hadeer'),('Sama','RaniaM'),('Sama','NourhanS'),('Sama','Hadeer'),('RaniaM','NourhanS'),('RaniaM','Hadeer'),('Hadeer','Nehal'),('Sama','Nehal'),('RaniaM','Sama'),('RaniaM','Nehal'),('NourhanS','RaniaM'),('NourhanS','Sama'),('NourhanS','Nehal'),('Hadeer','RaniaM'),('Hadeer','NourhanS'),('Hadeer','Sama')]
+G.add_edges_from(edges)
+
+
+
+G.add_nodes_from([
+    ('FatmaM',{"city":"Asswan"}),
+    ('FatmaW',{"city":"Damiett"}),
+    ('GhadaH',{"city":"Alsharqiah"}),
+    ('Madona',{"city":"Dayrut"})
+    
+])
+edges=[("FatmaM","Madona"),("GhadaH","FatmaW"),("GhadaH","Madona"),("FatmaM","FatmaW"),("FatmaM","GhadaH"),("FatmaW","Madona")]
+G.add_edges_from(edges)
+
+
+
+
+G.add_nodes_from([
+    ("Maria",{"city":"Assiut"}),
+    ("Clara",{"city":"Assiut"}),
+    ("Shery",{"city":"Assiut"}),
+    ("Mary",{"city":"Assiut"})
+     
+])
+edges = [("Maria", "Clara"),("Maria", "Mary"),("Maria", "Shery"),("Clara", "Mary"),("Clara","Shery"),("Mary", "Shery")]
+G.add_edges_from(edges)
+
+
+
+G.add_nodes_from([
+    ("AyaA",{"city":"Assiut"}),
+    ("SalmaH",{"city":"Assiut"}),
+    ("Santy",{"city":"SahelSelem"}),
+    ("DinaAh",{"city":"Assiut"}),
+    ("SalmaH",{"city":"Assiut"}),
+    ("DoaaAh",{"city":"Assiut"}),
+    ("Shrouk",{"city":"Alex"}),
+    ("Yasmeen",{"city":"Assiut"})
+
+     
+])
+edges_to_add = [('Santy', 'SalmaH'), ('Santy', 'Shrouk'),('Santy', 'DoaaAh'),('Santy', 'DinaAh'),('Santy', 'AyaA'),('Santy', 'Yasmeen'),
+('SalmaH', 'Shrouk'),('SalmaH', 'DoaaAh'),('SalmaH', 'DinaAh'),('SalmaH', 'AyaA'),('SalmaH', 'Yasmeen'),
+('Shrouk','DoaaAh'),('Shrouk','DinaAh'),('Shrouk','AyaA'),('Shrouk','Yasmeen'),
+('DoaaAh','DinaAh'),( 'DoaaAh','AyaA'),( 'DoaaAh','Yasmeen'),
+('DinaAh','AyaA'),('DinaAh','Yasmeen'),('AyaA','Yasmeen')]
+G.add_edges_from(edges_to_add)
+
+
+
+
+G.add_nodes_from( [
+    ('Ardina', {"city": 'Al-Qusia'}),
+    ('AyaK', {"city": 'Al-Ghanaim'}),
+    ('Rahil', {"city": 'AbuTig'}),
+    ('RolaA', {"city": 'Al-Qusia'}),
+    ('Manal', {"city": 'Minya'})
+])
+edges= [('Ardina', 'Rahil'), ('Ardina', 'Manal'), ('Ardina', 'RolaA'),('Ardina','AyaK'),('Rahil','AyaK'),('Rahil','RolaA'),('Rahil','Manal'),('AyaK','RolaA'),('AyaK','Manal'),('Manal','RolaA')]
+G.add_edges_from(edges)
+
+
+
+G.add_nodes_from( [
+    ('ZaynabA', {"city": 'Assuit'}),
+    ('ZaynabH', {"city": 'Al-Qusia'}),
+    ('RehamM', {"city": 'Abnob'}),
+    ('DoaaAL', {"city": 'Assuit'}),
+    ('Rehab', {"city": 'AlwadiAljadid'}),
+    ('ArwaM', {"city": 'AlwadiAljadid'}),
+    ('AyaS', {"city": 'Alsharqiah'})
+])
+G.add_edge("ZaynabA","ZaynabH")
+G.add_edge("ZaynabA","RehamM")
+G.add_edge("ZaynabA","DoaaAL")
+G.add_edge("ZaynabA","Rehab")
+G.add_edge("ZaynabA","ArwaM")
+G.add_edge("ZaynabA","AyaS")
+G.add_edge("ZaynabH","ZaynabA")
+G.add_edge("ZaynabH","RehamM")
+G.add_edge("ZaynabH","DoaaAL")
+G.add_edge("ZaynabH","Rehab")
+G.add_edge("ZaynabH","ArwaM")
+G.add_edge("ZaynabH","AyaS")
+G.add_edge("RehamM","ZaynabA")
+G.add_edge("RehamM","ZaynabH")
+G.add_edge("RehamM","DoaaAL")
+G.add_edge("RehamM","Rehab")
+G.add_edge("RehamM","ArwaM")
+G.add_edge("RehamM","AyaS")
+G.add_edge("DoaaAL","ZaynabA")
+G.add_edge("DoaaAL","ZaynabH")
+G.add_edge("DoaaAL","RehamM")
+G.add_edge("DoaaAL","Rehab")
+G.add_edge("DoaaAL","ArwaM")
+G.add_edge("DoaaAL","AyaS")
+G.add_edge("Rehab","ZaynabA")
+G.add_edge("Rehab","ZaynabH")
+G.add_edge("Rehab","RehamM")
+G.add_edge("Rehab","DoaaAL")
+G.add_edge("Rehab","ArwaM")
+G.add_edge("Rehab","AyaS")
+G.add_edge("ArwaM","ZaynabA")
+G.add_edge("ArwaM","ZaynabH")
+G.add_edge("ArwaM","RehamM")
+G.add_edge("ArwaM","DoaaAL")
+G.add_edge("ArwaM","Rehab")
+G.add_edge("ArwaM","AyaS")
+G.add_edge("AyaS","ZaynabA")
+G.add_edge("AyaS","ZaynabH")
+G.add_edge("AyaS","RehamM")
+G.add_edge("AyaS","DoaaAL")
+G.add_edge("AyaS","Rehab")
+G.add_edge("AyaS","ArwaM")
+
+
+
+
+G.add_nodes_from( [
+    ('Aisha', {"city": 'Assuit'}),
+    ('ShymaaM', {"city": 'Manfalout'}),
+    ('GhadeF', {"city": 'Assuit'}),
+    ('AyaB', {"city": 'Musrie'}),
+    ('Shahd', {"city": 'Manfalout'})
+   ])
+edges_to_add=[('Aisha', 'ShymaaM'), ('Aisha', 'GhadeF'), ('Aisha', 'AyaB'), ('Aisha', 'Shahd'), ('ShymaaM', 'GhadeF'), ('ShymaaM', 'AyaB'), ('ShymaaM', 'Shahd'), ('GhadeF', 'AyaB'), ('GhadeF', 'Shahd'), ('AyaB', 'Shahd')]
+G.add_edges_from(edges_to_add)
+
+
+
+
+G.add_nodes_from( [
+    ('Nouran', {"city": 'Assuit'}),
+    ('Salsabil', {"city": 'Assuit'}),
+    ('Walaa', {"city": 'Assuit'}),
+    ('Nora', {"city": 'AbuTig'}),
+    ('Hend', {"city": 'Qena'}),
+    ('Ash', {"city": 'Minya'}),
+    ('Nermeen', {"city": 'Manfalout'}),
+    ('NorhanA', {"city": 'Manfalout'})
+
+   ])
+edges_to_add=[("Nouran","Nora"),("NorhanA","Hend"),("Nouran","Walaa"), ("Nora","Hend"),("NorhanA","Walaa"),("Walaa","Nora"),("Walaa","Hend"),("Nora","NorhanA"),("Nouran","Hend"),("Nouran","NorhanA"),("Ash","Walaa"),("Nermeen","Walaa"),("Salsabil","Walaa"),("Salsabil","Nouran"),("Nouran","Ash"),("Nermeen","Nouran"),("Salsabil","Nora"),("Nermeen","Nora"),("Ash","Nora"),("Salsabil","Hend"),("Nermeen","Hend"),("Ash","Hend"),("Salsabil","NorhanA"),("Nermeen","NorhanA"),("Ash","NorhanA"),("Ash","Salsabil"),("Ash","Nermeen"),("Nermeen","Salsabil")]
+G.add_edges_from(edges_to_add)
+
+
+
+G.add_nodes_from( [
+    ('Nagwa', {"city": 'Alphath'}),
+    ('Mayar', {"city": 'Alphath'}),
+    ('Ereny', {"city": 'Manfalout'}),
+    ('Dimiana', {"city": 'Manfalout'}),
+    ('Martina', {"city": 'Al-Qusia'}),
+    ('Heba', {"city": 'Manfalout'}),
+    ('ShaimaaG', {"city": 'AbuTig'})
+])
+G.add_edges_from([('Dimiana','Ereny'),('Dimiana','ShaimaaG'),('Dimiana','Mayar'),('Dimiana','Nagwa'),('Dimiana','Martina'),('Dimiana','Heba'),('ShaimaaG','Ereny'),('ShaimaaG','Mayar'),('ShaimaaG','Nagwa'),('ShaimaaG','Martina'),('ShaimaaG','Heba'),('Ereny','Nagwa'),('Ereny','Mayar'),('Ereny','Martina'),('Ereny','Heba'),('Mayar','Heba'),('Mayar','Nagwa'),('Mayar','Martina'),('Nagwa','Martina'),('Nagwa','Heba'),('Martina','Heba')])
+
+
+
+
+G.add_nodes_from( [
+    ('MernaM', {"city": 'Manfalout'}),
+    ('MariamG', {"city": 'ِAssuit'}),
+    ('MariamMaher', {"city": 'AbuTig'}),
+    ('ManarI', {"city": 'ِAssuit'}),
+    ('MariamMahmod', {"city": 'AbuTig'}),
+    ('ManarA', {"city": 'El-Qusiya'}),
+    ('Mora', {"city": 'ِAssuit'})
+])
+edges = [('MernaM','MariamMaher'),('MernaM','MariamMahmod'),('MernaM','MariamG'),('MernaM','ManarI'),
+         ('MernaM','ManarA'),('MernaM','Mora'), ('MariamMaher','MernaM'),('MariamMaher','MariamMahmod'),
+         ('MariamMaher','MariamG'),('MariamMaher','ManarA'),('MariamMaher','ManarI'),('MariamMaher','Mora'),
+         ('MariamMahmod','MernaM'),('MariamMahmod','MariamMaher'),('MariamMahmod','MariamG'), ('MariamMahmod','ManarA'),
+         ('MariamMahmod','ManarI'),('MariamMahmod','Mora'), ('MariamG','MariamMaher'),('MariamG','MariamMahmod'),
+         ('MariamG','MernaM'),('MariamG','ManarI'),('MariamG','ManarA'), ('MariamG','Mora'),
+         ('ManarI','MariamMaher'),('ManarI','MariamMahmod'),('ManarI','MernaM'),('ManarI','MariamG'),('ManarI','ManarA'),
+         ('ManarI','Mora') ,('ManarA','MariamMaher'),('ManarA','MariamMahmod'),('ManarA','MernaM'),('ManarA','MariamG'),
+         ('ManarA','ManarI'),('ManarA','Mora'),('Mora','MariamMaher'),('Mora','MariamMahmod'),('Mora','MernaM'),
+         ('Mora','MariamG'),('Mora','ManarI'),('Mora','ManarA')]
+G.add_edges_from(edges)
+
+
+
+
+G.add_nodes_from( [
+    ('ArwaMos', {"city": 'Minya'}),
+    ('SalmaA', {"city": 'ِAssuit'}),
+    ('ArwaMoh', {"city": 'ِAssuit'}),
+    ('Esraa', {"city": 'Alex'})
+])
+edges_to_add = [('ArwaMos', 'Esraa'), ('Esraa', 'ArwaMoh'), ('ArwaMoh', 'SalmaA'), ('SalmaA', 'Esraa'),('Esraa', 'ArwaMos'),('ArwaMos', 'ArwaMoh'),('ArwaMoh', 'SalmaA'),('SalmaA', 'ArwaMos')]
+G.add_edges_from(edges_to_add)
+
+
+
+G.add_nodes_from( [
+    ('Reham', {"city": 'Mansoura'}),
+    ('Asmaa', {"city": 'ِAssuit'}),
+    ('Rahma', {"city": 'Sohag'}),
+    ('Arwa', {"city": 'Cairo'}),
+    ('Sarah', {"city": 'Cairo'}),
+    ('Rawan',{"city":'Assuit'}),
+    ('ALShaimaA',{"city":'Assuit'})
+])
+edges_to_add = [('Rawan', 'Reham'), ('Reham', 'Sarah'), ('Sarah', 'Rahma'),('Rahma','Asmaa'),('Asmaa','Arwa'),('Arwa','ALShaimaA'),('ALShaimaA','Rawan')]
+G.add_edges_from(edges_to_add)
+
+
+
+
+G.add_nodes_from( [
+    ('Roaa', {"city": 'Assuit'}),
+    ('Julie', {"city": 'ِAssuit'}),
+    ('Sondos', {"city": 'Sohag'}),
+    ('Habiba', {"city": 'Alex'}),
+    ('Naira', {"city": 'Damanhour'})
+])
+edges_to_add = [('Roaa', 'Julie'), ('Roaa', 'Sondos'), ('Julie', 'Sondos'), ('Julie', 'Habiba'), ('Habiba', 'Naira')]
+G.add_edges_from(edges_to_add)
+G.add_edges_from(edges_to_add)
+
+
+
+G.add_nodes_from([
+    ("MernaE",{"city":"Abnob"}),
+    ("RolaN",{"city":"Assiut"}),
+    ("Remonda",{"city":"SahelSelem"}),
+    ("Marly",{"city":"Assiut"}),
+    ("Marina",{"city":"Al-Qusia"}),
+    ("Haidy",{"city":"AbuTig"}),
+    ("Helana",{"city":"Assiut"})
+])
+
+edges_to_add = [("MernaE", "RolaN"),
+               ("MernaE", "Remonda"),
+               ("MernaE", "Marly"),
+               ("MernaE", "Marina"),
+               ("MernaE", "Haidy"),
+               ("MernaE", "Helana"),
+               ("RolaN", "Remonda"),
+               ("RolaN", "Marly"),
+               ("RolaN", "Marina"),
+               ("RolaN", "Haidy"),
+               ("RolaN", "Helana"),
+               ("Remonda", "Marly"),
+               ("Remonda", "Marina"),
+               ("Remonda", "Haidy"),
+               ("Remonda", "Helana"),
+               ("Marly", "Marina"),
+               ("Marly", "Haidy"),
+               ("Marly", "Helana"),
+               ("Marina", "Haidy"),
+               ("Marina", "Helana"),
+               ("Haidy", "Helana")]
+G.add_edges_from(edges_to_add)
+
+
+
+Nehal=[("Nehal","FatmaM"),("Nehal","Maria"),
+       ("Nehal","Clara"),("Nehal","Mary"),
+       ("Nehal","Santy"),("Nehal","DinaAh"),
+       ("Nehal","DoaaAh"),("Nehal","AyaA"),
+       ("Nehal","Yasmeen"),("Nehal","Manal"),
+       ("Nehal","GhadeF"),("Nehal","Nouran"),
+       ("Nehal","Nora"),("Nehal","Nermeen"),
+       ("Nehal","Salsabil"),("Nehal","ShaimaaG"),
+       ("Nehal","Nagwa"),("Nehal","Mayar"),
+       ("Nehal","MernaM"),("Nehal","MariamG"),
+       ("Nehal","Mora"),("Nehal","ManarA"),
+       ("Nehal","ManarI"),("Nehal","ArwaMoh"),
+      ("Nehal","SalmaA"),("Nehal","Asmaa"),
+      ("Nehal","Roaa"),("Nehal","Julie"),
+      ("Nehal","Sondos"),("Nehal","Habiba"),
+      ("Nehal","Naira"),("Nehal","MernaE")]
+G.add_edges_from(Nehal)
+
+
+
+Santy=[("Santy", "Nehal"),("Santy", "Sama"),("Santy", "RaniaM"),
+       ("Santy", "NourhanS"),("Santy", "Hadeer"),("Santy","FatmaM"),
+       ("Santy", "GhadaH"),("Santy", "Madona"),("Santy", "FatmaW"),
+       ("Santy", "Maria"),("Santy", "Clara"),("Santy", "Mary"),
+       ("Santy", "Shery"),("Santy", "Ardina"),("Santy", "AyaK"),
+       ("Santy", "Rahil"),("Santy", "RolaA"),("Santy", "Manal"),
+       ("Santy", "ZaynabA"),("Santy", "ZaynabH"),("Santy", "RehamM"),
+       ("Santy", "DoaaAL"),("Santy", "Rehab"),("Santy", "ArwaM"),
+       ("Santy", "AyaS"),("Santy", "Aisha"),("Santy", "ShymaaM"),
+       ("Santy", "GhadeF"),("Santy", "AyaB"),("Santy", "Shahd"),
+       ("Santy", "Nouran"),("Santy", "Nora"),("Santy", "NorhanA"),
+       ("Santy", "Hend"),("Santy", "Walaa"),("Santy", "Ash"),
+       ("Santy", "Nermeen"),("Santy", "Salsabil"),("Santy", "Dimiana"),
+       ("Santy", "Ereny"),("Santy", "ShaimaaG"),("Santy", "Mayar"),
+       ("Santy", "Nagwa"),("Santy", "Martina"),("Santy", "Heba"),
+       ("Santy", "MernaM"),("Santy", "MariamMaher"),("Santy", "MariamMahmod"),
+       ("Santy", "MariamG"),("Santy", "ManarI"),("Santy", "ManarA"),
+       ("Santy", "Mora"),("Santy", "ArwaMos"),("Santy", "Esraa"),
+       ("Santy", "ArwaMoh"),("Santy", "SalmaA"),("Santy", "Rawan"),
+       ("Santy", "Reham"),("Santy", "Rahma"),("Santy", "Sarah"),
+       ("Santy", "Arwa"),("Santy", "AlShaimaA"),("Santy", "Asmaa"),
+       ("Santy", "Roaa"),("Santy", "Julie"),("Santy", "Sondos"),
+       ("Santy", "Habiba"),("Santy", "Naira"),("Santy", "MernaE"),
+       ("Santy", "RolaN"),("Santy", "Remonda"),("Santy", "Marly"),
+       ("Santy", "Marina"),("Santy", "Haidy"),("Santy", "Helana")]
+G.add_edges_from(Santy)
+
+
+
+ManarA=[('ManarA','Nehal'),('ManarA','Maria'),('ManarA','Clara'),
+        ('ManarA','Santy'),('ManarA','Manal'),('ManarA','GhadeF'),
+        ('ManarA','Nermeen'),('ManarA','Nouran'),('ManarA','Nora'),
+        ('ManarA','Mayar'),('ManarA','Nagwa'),('ManarA','MernaM'),
+        ('ManarA','MariamMaher'),('ManarA','MariamG'),('ManarA','ManarI'),
+        ('ManarA','Mora'),('ManarA','Helana'),('ManarA','RaniaM'),
+        ('ManarA','Dimiana')]
+G.add_edges_from(ManarA)
+
+
+
+ArwaMos=[('ArwaMos','Yasmeen'),('ArwaMos','Ash'),
+         ('ArwaMos','Walaa'),('ArwaMos','DinaAh'),
+         ('ArwaMos','AyaK'),('ArwaMos','RolaA'),
+         ('ArwaMos','ArwaMoh'),('ArwaMos','Reham'),
+         ('ArwaMos','Julie'),('ArwaMos','Sondos'),
+         ('ArwaMos','Roaa'),('ArwaMos','Habiba'),
+         ('ArwaMos','AyaA'),('ArwaMos','DoaaAh'),
+         ('ArwaMos','Santy')]
+G.add_edges_from(ArwaMos)
+
+
+
+DoaaAh = [('DoaaAh','Nehal'),('DoaaAh','Sama'),
+          ('DoaaAh','RaniaM'),('DoaaAh','FatmaM'),
+          ('DoaaAh','Rahil'),('DoaaAh','RolaA'),
+          ('DoaaAh','RehamM'),('DoaaAh','ZaynabH'),
+          ('DoaaAh','ZaynabA'),('DoaaAh','Nouran'),
+          ('DoaaAh','Nora'),('DoaaAh','Salsabil'),
+          ('DoaaAh','Mora'),('DoaaAh','Rawan'),
+          ('DoaaAh','Reham'),('DoaaAh','Sarah'),
+          ('DoaaAh','Remonda'),('DoaaAh','RolaN')]
+G.add_edges_from(DoaaAh)
+
+
+
+Martina=[("Martina", "Helana"),("Martina", "Haidy"),
+         ("Martina", "Sama"),("Martina", "Manal"),
+         ("Martina", "MariamMaher"),("Martina", "MariamG"),
+         ("Martina", "Nehal"),("Martina", "Maria"),
+         ("Martina", "GhadaH"),("Martina", "FatmaM"),
+         ("Martina", "Madona"),("Martina", "FatmaW"),
+         ("Martina", "AyaB"),("Martina", "Shahd"),
+         ("Martina", "MernaE"),("Martina", "Marina")
+         ,("Martina", "Marly"),("Martina", "Remonda"),
+         ("Martina", "MernaM"),("Martina", "Rahil"),
+         ("Martina", "RolaN"),("Martina", "ManarI")]
+G.add_edges_from(Martina)
+
+
+
+Rahma=[("Rahma","Rawan"),("Rahma","Reham"),
+       ("Rahma","Sarah"),("Rahma","Asmaa"),
+       ("Rahma","Nehal"),("Rahma","Sama"),
+       ("Rahma","RaniaM"),("Rahma","Santy"),
+       ("Rahma","AyaK"),("Rahma","Rahil"),
+       ("Rahma","RolaA"),("Rahma","ZaynabA"),
+       ("Rahma","ZaynabH"),("Rahma","RehamM"),
+       ("Rahma","DoaaAL"),("Rahma","Rehab"),
+       ("Rahma","ArwaM"),("Rahma","AyaS"),
+       ("Rahma","ShymaaM"),("Rahma","Aisha"),
+       ("Rahma","GhadeF"),("Rahma","Salsabil"),
+       ("Rahma","Nouran"),("Rahma","ShaimaaG"),
+       ("Rahma","Heba"),("Rahma","Remonda")]
+G.add_edges_from(Rahma)
+
+
+
+ZaynabA=[("ZaynabA","Reham"),("ZaynabA","Sarah"),
+         ("ZaynabA","Rawan"),("ZaynabA","Salsabil"),
+         ("ZaynabA","Rahma"),("ZaynabA","Nehal"),
+         ("ZaynabA","DoaaAh"),("ZaynabA","SalmaH"),
+         ("ZaynabA","AyaK"),("ZaynabA","RolaA"),
+         ("ZaynabA","Nermeen"),("ZaynabA","Helana")]
+G.add_edges_from(ZaynabA)
+
+
+
+RehamM= [('RehamM','Santy'),('RehamM','SalmaH'),
+         ('RehamM','DoaaAh'),('RehamM','RaniaM'),
+         ('RehamM','ArwaMos'),('RehamM','Rawan'),
+         ('RehamM','Roaa'),('RehamM',"Remonda"),
+         ('RehamM',"RolaN"),('RehamM','AlShaimaA'),
+         ('RehamM','Arwa'),('RehamM',"Madona"),
+         ('RehamM','Mary'),('RehamM','Ardina'),
+         ('RehamM','Dimiana'),('RehamM',"Nouran"),
+         ('RehamM','Aisha'),('RehamM','AyaB')]
+G.add_edges_from(RehamM)
+
+
+
+Marly = [("Marly","Manal"),("Marly","Maria"),
+         ("Marly","Mary"),("Marly","Rahil"),
+         ("Marly","MariamG"),("Marly","MernaM"),
+         ("Marly","ManarI"),("Marly","Mora"),
+         ("Marly","AyaB")]
+G.add_edges_from(Marly)
+
+Ereny=[('Ereny','Rahil'),('Ereny','Manal'),
+       ('Ereny',"DoaaAL"),('Ereny','Rahma'),
+       ('Ereny','MariamMaher'),('Ereny','MernaM')]
+G.add_edges_from(Ereny)
+
+
+
+RolaN = [("RolaN", "RaniaM"),("RolaN", "Clara"),
+         ("RolaN", "Maria"),("RolaN", "Mary"),
+         ("RolaN", "Shery"),("RolaN", "Santy"),
+         ("RolaN", "Rahil"),("RolaN", "RolaA"),
+         ("RolaN", "Manal"),("RolaN", "RehamM"),
+         ("RolaN", "Salsabil"),("RolaN", "Dimiana"),
+         ("RolaN", "Mora"),("RolaN", "ManarI"),
+         ("RolaN", "MariamMaher"),("RolaN", "MariamG"),
+         ("RolaN", "MernaM"),("RolaN", "Asmaa"),
+         ("RolaN", "Rawan"),("RolaN", "Roaa"),
+         ("RolaN", "Julie")]
+G.add_edges_from(RolaN)
+
+
+
+
+Rawan=[('Rawan','RaniaM'),('Rawan','Shrouk'),
+       ('Rawan','RolaA'),('Rawan','DoaaAL'),
+       ('Rawan','Salsabil'),('Rawan','ShaimaaG'),
+       ('Rawan','SalmaA'),('Rawan','Remonda')]
+G.add_edges_from(Rawan)
+
+
+
+
+Dimiana=[('Dimiana','RaniaM'),('Dimiana','GhadaH'),
+         ('Dimiana','Clara'),('Dimiana','Santy'),
+         ('Dimiana','Ardina'),('Dimiana','DoaaAL'),
+         ('Dimiana','Aisha'),('Dimiana','Nouran'),
+         ('Dimiana','MernaM'),('Dimiana','ArwaMos'),
+         ('Dimiana','Rawan'),('Dimiana','Roaa'),
+         ('Dimiana','Helana')]
+G.add_edges_from(Dimiana)
+
+
+
+Heba=[("Heba","Nora"),("Heba","NorhanA"),
+      ("Heba","Hend"),("Heba","RaniaM"),
+      ("Heba","Sama"),("Heba","Nehal"),
+      ("Heba","NourhanS"),("Heba","Hadeer"),
+      ("Heba","MariamMaher"),("Heba","Manal"),
+      ("Heba","Salsabil"),("Heba","Santy"),
+      ("Heba","Reham"),("Heba","Rahma"),
+      ("Heba","Helana")]
+
+G.add_edges_from(Heba)
+
+
+
+MernaE =[("MernaE","Marly"),("MernaE", "Marina"),
+         ("MernaE", "Haidy"),("MernaE", "Helana"),
+         ("MernaE", "Nehal"),("MernaE", "Rahil"),
+         ("MernaE", "Manal"),("MernaE", "MernaM"),
+         ("MernaE", "Mora"),("MernaE","Nagwa"),
+         ("MernaE","Mayar")]
+
+G.add_edges_from(MernaE)
+
+
+
+Nagwa=[('Nagwa','Nehal'),('Nagwa','Santy'),
+       ('Nagwa','Manal'),('Nagwa','Nermeen'),
+       ('Nagwa','Salsabil'),('Nagwa','Nora'),
+       ('Nagwa','Ereny'),('Nagwa','ShaimaaG'),
+       ('Nagwa','Mayar'),('Nagwa','Heba'),
+       ('Nagwa','MernaM'),('Nagwa','MariamMaher'),
+       ('Nagwa','Mora'),('Nagwa','MariamMahmod'),
+       ('Nagwa','ManarA'),('Nagwa','AlShaimaA'),
+       ('Nagwa','MernaE'),('Nagwa','Helana'),
+       ('Nagwa','Haidy')]
+
+G.add_edges_from(Nagwa)
+
+
+
+Sama = [('Sama','FatmaM'),('Sama','Shery'),
+        ('Sama','Santy'),('Sama','SalmaH'),
+        ('Sama','Shrouk'),('Sama','DoaaAh'),
+        ('Sama','RehamM'),('Sama','Rehab'),
+        ('Sama','ArwaM'),('Sama','Aisha'),
+        ('Sama','ShymaaM'),('Sama','GhadeF'),
+        ('Sama','Nouran'),('Sama','Nora'),
+        ('Sama','NorhanA'),('Sama','Hend'),
+        ('Sama','Nermeen'),('Sama','Salsabil'),
+        ('Sama','Sarah'),('Sama','RolaN'),
+        ('Sama','Remonda')]
+G.add_edges_from(Sama)
+
+
+Helana =[("Helana","Marina"),("Helana", "Marly"),
+         ("Helana", "Mora"),("Helana", "ManarI"),
+         ("Helana", "ZaynabA"),("Helana", "MariamG"),
+         ("Helana", "MernaE"),("Helana", "Maria"),
+         ("Helana", "Clara"),("Helana","Madona"),
+         ("Helana","Haidy"),("Helana","Rahil")]
+
+G.add_edges_from(Helana)
+
+
+
+
+Manal=[("Manal","Haidy"),("Manal","Remonda"),("Manal","Santy")]
+G.add_edges_from(Manal)
+
+
+
+
+Maria = [("Maria", "RaniaM"),("Maria", "Nehal"),
+         ("Maria", "FatmaM"),("Maria", "Madona"),
+         ("Maria", "GhadaH"),("Maria", "FatmaW"),
+         ("Maria", "Santy"),("Maria", "AyaK"),
+         ("Maria", "Rahil"),("Maria", "RolaA"),
+         ("Maria", "Manal"),("Maria", "GhadeF"),
+         ("Maria", "Nouran"),("Maria", "Nora"),
+         ("Maria", "Salsabil"),("Maria", "Martina"),
+         ("Maria", "MariamMaher"),("Maria", "MariamMahmod"),
+         ("Maria", "MariamG"),("Maria", "ManarI"),
+         ("Maria", "ManarA"),("Maria", "Mora"),
+         ("Maria", "MernaM"),("Maria", "SalmaA"),
+         ("Maria", "Julie"),("Maria", "MernaE"),
+         ("Maria", "RolaN"),("Maria", "Remonda"),
+         ("Maria", "Marly"),("Maria", "Marina"),
+         ("Maria", "Haidy"),("Maria", "Helana")]
+G.add_edges_from(Maria)
+
+Haidy=[("Haidy","Mary"),("Haidy","MernaM"),("Haidy","Clara")]
+G.add_edges_from(Haidy)
+
+
+
+AyaK=[("AyaK","ZaynabA"),("AyaK","Reham"),
+      ("AyaK","Rahma"),("AyaK","Habiba"),
+      ("AyaK","Remonda"),("AyaK","Ereny")]
+G.add_edges_from(AyaK)
+
+
+
+
+Ardina=[('Ardina','Nehal'),('Ardina',"Clara"),
+        ('Ardina','Santy'),('Ardina','AyaA'),
+        ('Ardina','RehamM'),('Ardina','ShaimaaG'),
+        ('Ardina','Ereny'),('Ardina','Esraa'),
+        ('Ardina','AlShaimaA'),('Ardina','MernaE'),
+        ('Ardina','Remonda'),('Ardina','Haidy')]
+G.add_edges_from(Ardina)
+
+
+
+RolaA=[("RolaA","AyaK"),("RolaA","Rahil"),
+       ("RolaA","ZaynabH"),("RolaA","Nehal"),
+       ("RolaA","Maria"),("RolaA","ZaynabA"),
+     ("RolaA","Yasmeen"),("RolaA","RehamM"),
+       ("RolaA","Roaa")]
+G.add_edges_from(RolaA)
+
+
+
+Rahil=[("Rahil","Roaa"),("Rahil","Rawan"),
+       ("Rahil","Nehal"),("Rahil","MernaM"),
+       ("Rahil","Madona"),("Rahil","Mary"),
+       ("Rahil","DoaaAh"),("Rahil","Rehab"),
+       ("Rahil","Aisha")]
+G.add_edges_from(Rahil)
+
+
+
+AyaA=[("AyaA","Nehal"),("AyaA",'NourhanS'),
+      ("AyaA",'Mary'),("AyaA","Rahil"),
+      ("AyaA","RolaA"),("AyaA","ZaynabA"),
+      ("AyaA",'ZaynabH'),("AyaA",'RehamM'),
+      ("AyaA",'GhadeF'),("AyaA","Nora"),
+      ("AyaA","Nouran"),("AyaA",'Salsabil'),
+      ("AyaA","SalmaA"),("AyaA","Sarah"),
+      ("AyaA","Rawan")]
+G.add_edges_from(AyaA)
+
+
+
+DinaAh=[("DinaAh","Sarah"),("DinaAh","Hadeer")
+        ,('DinaAh','RaniaM'),('DinaAh','NourhanS'),
+        ('DinaAh','Santy'),('DinaAh','Nehal'),
+        ('DinaAh','RolaA'),('DinaAh','Habiba'),
+        ('DinaAh','Roaa'),('DinaAh','Rahil'), 
+        ("DinaAh", "Clara"),("DinaAh", "Mary")]
+G.add_edges_from(DinaAh)
+
+
+
+Marina = [("Marina", "MernaE"),("Marina", "Remonda"),
+          ("Marina", "Haidy"),("Marina", "Helana"), 
+          ("Marina", "Marly"),("Marina", "Rahil"), 
+          ("Marina","Manal"),("Marina","Ereny"),
+          ("Marina","Dimiana"),("Marina","MariamMaher"),
+          ("Marina","MernaM"),("Marina","MariamG"),
+          ("Marina","AyaB"),("Marina","Maria"),
+          ("Marina","Madona"),("Marina","RaniaM"),
+          ("Marina","Nora"),("Marina","Santy")]
+G.add_edges_from(Marina)
+
+
+
+Sarah=[('Sarah','Sama'),('Sarah','Aisha'),
+       ('Sarah','RehamM'),('Sarah','Salsabil'),
+       ('Sarah','Shrouk'),('Sarah','SalmaH')]
+G.add_edges_from(Sarah)
+
+
+
+Nora=[("Nora","Sama"),("Nora","RaniaM"),
+      ("Nora","Hadeer"),("Nora","Madona"),
+      ("Nora","Clara"),("Nora","Mary"),
+      ("Nora","DoaaAh"),("Nora","DinaAh"),
+      ("Nora","AyaA"),("Nora","Yasmeen"),
+      ("Nora","Manal"),("Nora","AyaB"),
+      ("Nora","Shahd"),("Nora","ShymaaM"),
+      ("Nora","Mayar"),("Nora","Heba"),
+      ("Nora","Nagwa"),("Nora","MernaM"),
+      ("Nora","MariamMaher"),("Nora","ManarI"),
+      ("Nora","MariamMahmod"),("Nora","MariamG"),
+      ("Nora","Roaa"),("Nora","Asmaa"),
+      ("Nora","Haidy"),("Nora","Marly"),
+      ("Nora","Marina"),("Nora","Helana")]
+G.add_edges_from(Nora)
+
+
+
+Reham=[("Reham","RolaA"),("Reham","ZaynabA"),
+       ("Reham","Shrouk"),("Reham","Salsabil"),
+       ("Reham","RaniaM")]
+G.add_edges_from(Reham)
+
+Asmaa=[('Asmaa','RaniaM'),('Asmaa','Shrouk'),
+       ('Asmaa','RolaA'),('Asmaa','DoaaAL'),
+       ('Asmaa','Salsabil'),('Asmaa','ShaimaaG'),
+       ('Asmaa','SalmaA'),('Asmaa','Remonda')]
+G.add_edges_from(Asmaa)
+
+
+
+Hend=[("Hend","Hadeer"),("Hend","NourhanS"),
+      ("Hend","Sama"),("Hend","Yasmeen"),
+      ("Hend","AyaB"),("Hend","Shahd"),
+      ("Hend","Heba"),("Hend","MariamG"),
+      ("Hend","Mayar"),("Hend","ManarI"),
+      ("Hend","Asmaa"),("Hend","Haidy")]
+G.add_edges_from(Hend)
+
+
+
+AlShaimaA = [("AlShaimaA" , "Shahd") , ("AlShaimaA", "ShaimaaG") , 
+             ("AlShaimaA","Salsabil"),("AlShaimaA","AyaB"),
+             ("AlShaimaA","Shahd"),("AlShaimaA","ShymaaM"),
+             ("AlShaimaA","GhadeF"),("AlShaimaA","RehamM"),
+             ("AlShaimaA","ZaynabH"),("AlShaimaA","DoaaAL"), 
+             ("AlShaimaA" , "AyaS"),("AlShaimaA" , "RehamM"),
+             ("AlShaimaA" , "Ereny"),("AlShaimaA" , "Esraa"),
+             ("AlShaimaA" , "ArwaMos"),("AlShaimaA" , "SalmaA")]
+G.add_edges_from(AlShaimaA)
+
+
+
+Yasmeen=[('Yasmeen','ArwaMos'),('Yasmeen','Roaa'),
+         ('Yasmeen','RolaA'),('Yasmeen','Hadeer'),
+         ('Yasmeen','Sondos'),('Yasmeen','RaniaM'),
+         ('Yasmeen','Nehal'),('Yasmeen','Clara'),
+         ('Yasmeen','Maria'),('Yasmeen','Mary'),
+         ('Yasmeen','Rahil'),('Yasmeen','Nora'),
+         ('Yasmeen','Nouran'),('Yasmeen','Hend'),
+         ('Yasmeen','Santy'),('Yasmeen','ArwaMoh')]
+G.add_edges_from(Yasmeen)
+
+
+
+Nermeen=[("Nermeen","Salsabil"),("Nermeen","Hend"),
+         ("Nermeen","Nehal"),("Nermeen","Santy"),
+         ("Nermeen","ShymaaM"),("Nermeen","Aisha"),
+         ("Nermeen","GhadeF"),("Nermeen","Nora"),
+         ("Nermeen","Nouran"),("Nermeen","NorhanA"),
+         ("Nermeen","AyaA"),("Nermeen","Mayar"),
+         ("Nermeen","Nagwa")]
+G.add_edges_from(Nermeen)
+
+
+
+Arwa = [("Arwa","ArwaMoh"),("Arwa","Esraa"),
+        ("Arwa","Roaa"),("Arwa","Marly")]
+G.add_edges_from(Arwa)
+
+
+
+ArwaMoh = [("ArwaMoh","Roaa"),("ArwaMoh","Sondos"),
+           ("ArwaMoh","Nehal"),("ArwaMoh","Arwa")]
+G.add_edges_from(ArwaMoh)
+
+
+Esraa = [("Esraa","Arwa"),("Esraa","AlShaimaA"),
+         ("Esraa","Roaa"),("Esraa","RolaN")]
+G.add_edges_from(Esraa)
+
+
+
+SalmaA= [("SalmaA","Roaa"),("SalmaA","Sondos"),
+         ("SalmaA","Nehal"),("SalmaA","Arwa")]
+G.add_edges_from(SalmaA)
+
+
+
+Nouran=[("Nouran","Hadeer"),("Nouran","NourhanS"),
+        ("Nouran","Nehal"),("Nouran","Yasmeen"),
+        ("Nouran","AyaA"),("Nouran","GhadeF"),
+        ("Nouran","AyaB"),("Nouran","Shahd"),
+        ("Nouran","Heba"), ("Nouran","Mayar"),
+        ("Nouran","Clara"), ("Nouran","ManarI"),
+        ("Nouran","Haidy"),("Nouran","Marina"),
+        ("Nouran","Marly"),("Nouran","Asmaa")]
+G.add_edges_from(Nouran)
+
+
+
+Ash=[("Ash","ArwaMos"),("Ash","AyaS")]
+G.add_edges_from(Ash)
+
+AyaS=[("AyaS","AyaK"),("AyaS","Ardina"),
+      ("AyaS","RolaA"),("AyaS","Ash"),
+      ("AyaS","AyaA"),("AyaS","GhadaH"),
+      ("AyaS","FatmaM"),("AyaS","Ereny"),
+      ("AyaS","MariamMahmod"),("AyaS","MariamMaher")]
+G.add_edges_from(AyaS)
+
+
+
+
+Mayar=[('Mayar','Ereny'),('Mayar','Nehal'),
+       ('Mayar','Santy'),('Mayar','Helana'),
+       ('Mayar','Nora'),('Mayar','Manal') ,
+       ('Mayar','Nermeen'),('Mayar','Salsabil'),
+       ('Mayar','Sama'),('Mayar','Hadeer'),
+       ('Mayar','FatmaM'),('Mayar','ShaimaaG'),
+       ('Mayar','Nagwa'),('Mayar','Heba'),
+       ('Mayar','Clara'),('Mayar','MernaM'),
+       ('Mayar','MariamMaher'),('Mayar','Mora'),
+       ('Mayar','MariamMahmod'),('Mayar','ManarA'),
+       ('Mayar','AlShaimaA'),('Mayar','MernaE'),
+       ('Mayar','Haidy')]
+G.add_edges_from(Mayar)
+
+
+
+Mora=[("Mora","Maria"),("Mora","Nehal"),("Mora","Helana")]
+G.add_edges_from(Mora)
+
+
+FatmaW=[("FatmaW","Nehal"),("FatmaW","Clara"),
+        ("FatmaW","Mary"),("FatmaW","Shrouk"),
+        ("FatmaW","Santy"),("FatmaW","AyaS"),
+        ("FatmaW","GhadeF"),("FatmaW","Aisha"),
+        ("FatmaW","Mayar"),("FatmaW","Martina"),
+        ("FatmaW","MariamMahmod"),("FatmaW","Mora"),
+        ("FatmaW","ManarI"),("FatmaW","Rawan"),
+        ("FatmaW","Helana")]
+G.add_edges_from(FatmaW)
+
+
+Madona=[("Madona","MariamMaher"),("Madona","Clara"),
+        ("Madona","Mary"),("Madona","Mora"),
+        ("Madona","Haidy"),("Madona","Marina"),
+        ("Madona","Marly"),("Madona","Helana"),
+        ("Madona","ManarI"),("Madona","MernaM")]
+G.add_edges_from(Madona)
+
+
+GhadaH=[("GhadaH","Clara"),("GhadaH", "Mary"),
+       ("GhadaH","Maria"),("GhadaH","MariamMaher"),
+       ("GhadaH","NorhanA"),("GhadaH","Hend"),
+       ("GhadaH","Shrouk"),("GhadaH","Santy"),
+       ("GhadaH","AyaS"),("GhadaH","ManarI"),
+       ("GhadaH","Mora"),("GhadaH","MariamMahmod"),
+       ("GhadaH","GhadeF"),("GhadaH","Aisha"),
+       ("GhadaH","Mayar"),("GhadaH","Rawan"),
+       ("GhadaH","Helana"),("GhadaH","Haidy")]
+G.add_edges_from(GhadaH)
+
+
+
+DoaaAL =[('DoaaAL','RaniaM'),('DoaaAL','Rawan'),
+         ('DoaaAL','Reham'), ('DoaaAL','Roaa'),
+         ('DoaaAL',"Remonda"),('DoaaAL',"RolaN"),
+         ('DoaaAL','AlShaimaA'),('DoaaAL',"Walaa"),
+         ('DoaaAL','Ardina'),('DoaaAL','Dimiana'),
+         ('DoaaAL',"Salsabil"),('DoaaAL','Aisha'),
+         ('DoaaAL','Rahma')]
+G.add_edges_from(DoaaAL)
+
+
+MariamMaher=[("MariamMaher" ,"Asmaa"),("MariamMaher","Dimiana"),
+             ("MariamMaher","Ereny"),("MariamMaher","ShaimaaG"),
+             ("MariamMaher","Rahil"),("MariamMaher","RolaN"),
+             ("MariamMaher","Santy"),("MariamMaher","Maria"),
+             ("MariamMaher","Clara"),("MariamMaher","Mary"),
+             ("MariamMaher","MernaE"),("MariamMaher","Remonda")]
+G.add_edges_from(MariamMaher)
+
+
+
+Walaa=[("Walaa","Hadeer"),('Walaa','Aisha'),('Walaa','ShymaaM')]
+G.add_edges_from(Walaa)
+
+
+
+FatmaM=[("FatmaM","Nehal"),("FatmaM","Sama"),
+        ("FatmaM","Clara"),("FatmaM","Mary"),
+        ("FatmaM","Santy"),("FatmaM","DoaaAh"),
+        ("FatmaM","GhadeF"),("FatmaM","Salsabil"),
+        ("FatmaM","ShaimaaG"),("FatmaM","Mayar"),
+        ("FatmaM","Martina"),("FatmaM","Heba"),
+        ("FatmaM","Asmaa")]
+G.add_edges_from(FatmaM)
+
+ShaimaaG=[('ShaimaaG','Nehal'),('ShaimaaG','Sama'),
+          ('ShaimaaG','RaniaM'),('ShaimaaG','MariamMaher'),
+          ('ShaimaaG','Clara'),('ShaimaaG','AlShaimaA'),
+          ('ShaimaaG','Rawan')]
+G.add_edges_from(ShaimaaG)
+
+
+Remonda=[("Remonda","Nehal"),("Remonda","RaniaM"),
+         ("Remonda","Sama"),("Remonda","Clara"),
+         ("Remonda","Maria"),("Remonda","Shery"),
+         ("Remonda","Santy"),("Remonda","Shrouk"),
+         ("Remonda","AyaA"),("Remonda","AyaK"),
+         ("Remonda","Ardina"),("Remonda","Rahil"),
+         ("Remonda","RolaA"),("Remonda","Manal"),
+         ("Remonda","GhadeF") ,("Remonda","Rawan"),
+         ("Remonda","Reham"),("Remonda","Rahma"),
+         ("Remonda","Sarah"),("Remonda","Arwa"),
+         ("Remonda","Asmaa"),("Remonda","DoaaAL"),
+         ("Remonda","Rehab"),("Remonda","RehamM"),
+         ("Remonda","Salsabil"),("Remonda","NorhanA"),
+         ("Remonda","Dimiana"),("Remonda","MariamG"),
+         ("Remonda","MernaM"),("Remonda","Mora"),
+         ("Remonda","Roaa"),("Remonda","MariamMaher"),
+         ("Remonda","ManarI"),("Remonda","MariamMahmod"),
+         ("Remonda","Nouran")]
+G.add_edges_from(Remonda)
+
+
+
+
+MariamG=[('MariamG','Nehal'),('MariamG','Rahil'),
+         ('MariamG','RolaA'),('MariamG','Manal'),
+         ('MariamG','Marly'),('MariamG','Haidy'),
+         ('MariamG','Marina')]
+G.add_edges_from(MariamG)
+
+
+
+MariamMahmod=[('MariamMahmod','Nehal'),('MariamMahmod','Nora'),
+              ('MariamMahmod','Nouran'),('MariamMahmod','Nermeen')]
+G.add_edges_from(MariamMahmod)
+
+
+ManarI=[('ManarI','Haidy'),('ManarI','Manal'),
+        ('ManarI','Marly'),('ManarI','Rahil'),
+        ('ManarI','RolaA')]
+G.add_edges_from(ManarI)
+
+
+
+MernaM=[('MernaM','Haidy'),('MernaM','Manal'),
+        ('MernaM','Helana'),('MernaM','Marina'),
+        ('MernaM','Marly')]
+G.add_edges_from(MernaM)
+
+
+
+Salsabil=[("Salsabil","Nehal"),("Salsabil","Sama"),
+          ("Salsabil","RaniaM"),("Salsabil","NourhanS"),
+          ("Salsabil","Hadeer"),("Salsabil","Maria"),
+          ("Salsabil","Clara"),("Salsabil","Santy"),
+          ("Salsabil","SalmaH"),("Salsabil","Shrouk"),
+          ("Salsabil","DoaaAh"),("Salsabil","DinaAh"),
+          ("Salsabil","Ardina"),("Salsabil","Rahil"),
+          ("Salsabil","ZaynabA"),("Salsabil","ZaynabH"),
+          ("Salsabil","RehamM"),("Salsabil","DoaaAL"),
+          ("Salsabil","Rehab"),("Salsabil","ArwaM"),
+          ("Salsabil","AyaS"),("Salsabil","Aisha"),
+          ("Salsabil","ShymaaM"),("Salsabil","GhadeF"),
+          ("Salsabil","AyaB"),("Salsabil","Shahd"),
+          ("Salsabil","ShaimaaG"),("Salsabil","Mayar"),
+          ("Salsabil","Nagwa"),("Salsabil","Heba"),
+          ("Salsabil","MariamMaher"),("Salsabil","MariamG"),
+          ("Salsabil","ManarA"),("Salsabil","MariamMahmod"),
+          ("Salsabil","SalmaA"),("Salsabil","Rawan"),
+          ("Salsabil","Reham"),("Salsabil","Rahma"),
+          ("Salsabil","Sarah"),("Salsabil","Arwa"),
+          ("Salsabil","AlShaimaA"),("Salsabil","Asmaa"),
+          ("Salsabil","RolaN"),("Salsabil","Remonda"),
+          ("Salsabil","Haidy")]
+G.add_edges_from(Salsabil)
+
+
+
+GhadeF=[("GhadeF","Rahma"),("GhadeF","Salsabil"),
+        ("GhadeF","Nouran"),("GhadeF","Hadeer"),
+        ("GhadeF","Clara"),("GhadeF","Shrouk"),
+        ("GhadeF","ZaynabA"),("GhadeF","ArwaM"),
+        ("GhadeF","Walaa")]
+G.add_edges_from(GhadeF)
+
+
+
+
+Shahd=[("Shahd","Nehal"),("Shahd","DinaAh"),
+       ("Shahd","Nouran"),("Shahd","Manal"),
+       ("Shahd","ZaynabH"),("Shahd","Salsabil"),
+       ("Shahd","Heba"),("Shahd","Walaa")]
+G.add_edges_from(Shahd)
+
+
+Clara=[("Clara","Nehal"),("Clara","RaniaM"),
+       ("Clara","Hadeer"),("Clara","FatmaM"),
+       ("Clara","Madona"),("Clara","GhadaH"),
+       ("Clara","Santy"),("Clara","Rahil"),
+       ("Clara","Manal"),("Clara","DoaaAL"),
+       ("Clara","GhadeF"),("Clara","Nora"),
+       ("Clara","Salsabil"),("Clara","MariamMaher"),
+       ("Clara","MariamG"),("Clara","ManarI"),
+       ("Clara","Mora"),("Clara","Julie"),
+       ("Clara","RolaN"),("Clara","Remonda"),
+       ("Clara","Haidy"),("Clara","Marina")]
+G.add_edges_from(Clara)
+
+AyaB=[("AyaB","Nouran"),("AyaB","Santy"),
+      ("AyaB","Nora"),("AyaB","Martina"),
+      ("AyaB","Nermeen"),("AyaB","Salsabil"),
+      ("AyaB","Heba"),("AyaB","RaniaM")]
+G.add_edges_from(AyaB)
+
+
+
+Hadeer=[("Hadeer","Clara"),("Hadeer","Santy"),
+        ("Hadeer","DoaaAh"),("Hadeer","DinaAh"),
+        ("Hadeer","AyaA"),("Hadeer","Yasmeen"),
+        ("Hadeer","RolaA"),("Hadeer","GhadeF"),
+        ("Hadeer","Nouran"),("Hadeer","Nora"),
+        ("Hadeer","NorhanA"),("Hadeer","Hend"),
+        ("Hadeer","Walaa"),("Hadeer","Nermeen"),
+        ("Hadeer","Salsabil"),("Hadeer","Heba"),
+        ("Hadeer","ArwaMos"),("Hadeer","Esraa"),
+        ("Hadeer","ArwaMoh"),("Hadeer","Arwa"),
+        ("Hadeer","Roaa"),("Hadeer","Julie"),
+        ("Hadeer","Sondos"),("Hadeer","Habiba"),
+        ("Hadeer","Naira"),("Hadeer","Haidy"),
+        ("Hadeer","Helana"),("Hadeer","Shahd")]
+G.add_edges_from(Hadeer)
+
+
+
+
+ShymaaM=[("ShymaaM","Aisha"),("ShymaaM","Nouran"),
+         ("ShymaaM","Shahd"),("ShymaaM","AyaB"),
+         ("ShymaaM","Salsabil"),("ShymaaM","GhadeF"),
+         ("ShymaaM","RaniaM"),("ShymaaM","Nermeen")]
+G.add_edges_from(ShymaaM)
+
+
+
+NourhanS=[("NourhanS","GhadaH"),("NourhanS","Clara"),
+          ("NourhanS","Santy"),("NourhanS","SalmaH"),
+          ("NourhanS","Shrouk"),("NourhanS","DoaaAh"),
+          ("NourhanS","DinaAh"),("NourhanS","AyaA"),
+          ("NourhanS","Yasmeen"),("NourhanS","Aisha"),
+          ("NourhanS","ShymaaM"),("NourhanS","GhadeF"),
+          ("NourhanS","AyaB"),("NourhanS","Shahd"),
+          ("NourhanS","Nouran"),("NourhanS","Nora"),
+          ("NourhanS","NorhanA"),("NourhanS","Hend"),
+          ("NourhanS","Walaa"),("NourhanS","Salsabil"),
+          ("NourhanS","Mora"),("NourhanS","Rawan"),
+          ("NourhanS","Asmaa"),("NourhanS","Roaa"),
+          ("NourhanS","Julie"),("NourhanS","Sondos"),
+          ("NourhanS","Habiba"),("NourhanS","Helana")]
+G.add_edges_from(NourhanS)
+
+
+
+Aisha=[("Aisha","RaniaM"),("Aisha","FatmaM"),
+       ("Aisha","Shrouk"),("Aisha","ZaynabA"),
+       ("Aisha","Nouran"),("Aisha","ShaimaaG"),
+       ("Aisha","MariamMaher"),("Aisha","SalmaA"),
+       ("Aisha","Asmaa")]
+G.add_edges_from(Aisha)
+
+
+
+Shery = [("Shery", "MernaE"),("Shery", "RolaN"),
+         ("Shery", "Marly"),("Shery", "Remonda"),
+         ("Shery","Marina"),("Shery", "Haidy"),
+         ("Shery", "Helana"),("Shery","Julie"),
+         ("Shery", "Sondos"),("Shery", "SalmaA"),
+         ("Shery","MernaM"),("Shery", "MariamMaher"),
+         ("Shery", "MariamG"),("Shery","ManarI"),
+         ("Shery", "Mora"),("Shery", "Aisha"),
+         ("Shery", "ShymaaM"),("Shery", "Rahil"),
+         ("Shery","Manal"),("Shery", "Santy"),
+         ("Shery", "Sama")]
+G.add_edges_from(Shery)
+
+
+
+Mary = [("Mary", "Santy"),("Mary", "Rahil"), 
+        ("Mary", "RolaA"), ("Mary", "Nehal"), 
+        ("Mary", "MernaE"), ("Mary", "RolaN"), 
+        ("Mary", "Marly"), ("Mary", "Remonda"), 
+        ("Mary", "Marina"), ("Mary", "Haidy"), 
+        ("Mary", "Helana"),  ("Mary", "MernaM"), 
+        ("Mary", "MariamMaher"), ("Mary", "MariamG"), 
+        ("Mary", "Mora"),  ("Mary", "Manal")]
+G.add_edges_from(Mary)
+
+
+
+RaniaM=[("RaniaM","Clara"),("RaniaM","Santy"),
+        ("RaniaM","Shrouk"),("RaniaM","DoaaAh"),
+        ("RaniaM","DinaAh"),("RaniaM","AyaA"),
+        ("RaniaM","Yasmeen"),("RaniaM","Rahil"),
+        ("RaniaM","RolaA"),("RaniaM","ZaynabA"),
+        ("RaniaM","RehamM"),("RaniaM","GhadeF"),
+        ("RaniaM","Aisha"),("RaniaM","ShymaaM"),
+        ("RaniaM","Shahd"),("RaniaM","Walaa"),
+        ("RaniaM","Dimiana"),("RaniaM","MariamMaher"),
+        ("RaniaM","ArwaMoh"), ("RaniaM","Rawan"),
+        ("RaniaM","Roaa"),("RaniaM","RolaN"),
+        ("RaniaM","Remonda"),("RaniaM","AyaB")]
+G.add_edges_from(RaniaM)
+
+
+NorhanA=[("NorhanA","Sama"),('NorhanA','NourhanS'),
+         ('NorhanA','ShymaaM'),('NorhanA','Shahd'),
+         ('NorhanA','Heba'),('NorhanA','MariamMaher'),
+         ('NorhanA','MariamG') ]
+G.add_edges_from(NorhanA)
+
+
+Zaynab = [('ZaynabH','Shrouk'),('ZaynabH','DoaaAh'),
+          ('ZaynabH','RaniaM'),('ZaynabH','Rawan'),
+          ('ZaynabH','Roaa'),('ZaynabH',"Remonda"),
+          ('ZaynabH',"RolaN"),('ZaynabH','AlShaimaA'),
+          ('ZaynabH','Ardina'),('ZaynabH',"Nouran"),
+          ('ZaynabH','Aisha')]
+G.add_edges_from(Zaynab)
+
+
+
+ArwaM=[("ArwaM","SalmaH"),
+       ("ArwaM","Shrouk"),
+       ("ArwaM","Yasmeen"),
+       ("ArwaM","Salsabil"),
+       ("ArwaM","Rawan"),
+       ("ArwaM","Rahma"),
+       ("ArwaM","ShaimaaG"),
+       ("ArwaM","Asmaa"),
+       ("ArwaM","Reham"),
+       ("ArwaM","Sarah"),
+       ("ArwaM","Shrouk"),
+       ("ArwaM","Shahd"),
+       ("ArwaM","Walaa")]
+G.add_edges_from(ArwaM)
+
+
+
+Naira=[("Naira","Nehal"),("Naira","Hadeer"),("Naira","Heba")]
+G.add_edges_from(Naira)
+
+
+
+Shrouk=[("Shrouk","Nehal"),("Shrouk",'NourhanS'),
+        ("Shrouk",'Sama'),("Shrouk","RaniaM"),
+        ("Shrouk","Hadeer"),("Shrouk","FatmaM"),
+        ("Shrouk",'Madona'),("Shrouk",'GhadaH'),
+        ("Shrouk",'Maria'),("Shrouk","Clara"),
+        ("Shrouk","Mary"),("Shrouk",'Rahil'),
+        ("Shrouk","ZaynabH"),("Shrouk","Aisha"),
+        ("Shrouk","ShymaaM"),("Shrouk","GhadeF"),
+        ("Shrouk","Nouran"),("Shrouk","Salsabil"),
+        ("Shrouk","Ash"),("Shrouk","ShaimaaG"),
+        ("Shrouk","Dimiana")]
+G.add_edges_from(Shrouk)
+
+
+
+SalmaH=[("SalmaH","Nehal"),("SalmaH",'NourhanS'),
+        ("SalmaH",'Sama'),("SalmaH","RaniaM"),
+        ("SalmaH","Hadeer"),("SalmaH","FatmaM"),
+        ("SalmaH",'Madona'),("SalmaH",'GhadaH'),
+        ("SalmaH",'Maria'),("SalmaH","Clara"),
+        ("SalmaH","Mary"),("SalmaH",'Rahil'),
+        ("SalmaH","ZaynabH"),("SalmaH","Aisha"),
+        ("SalmaH","ShymaaM"),("SalmaH","GhadeF"),
+        ("SalmaH","Nouran"),("SalmaH","Salsabil"),
+        ("SalmaH","Ash"),
+        ("SalmaH","ShaimaaG"),("SalmaH","Dimiana")]
+G.add_edges_from(SalmaH)
+
+
+Julie=[('Julie','Rahil'),('Julie','Nehal'),
+       ('Julie','Hadeer'),('Julie','Clara')]
+G.add_edges_from(Julie)
+
+
+Roaa=[("Roaa","Hadeer"),("Roaa","Nehal"),
+      ("Roaa","DinaAh"),("Roaa","Santy"),
+      ("Roaa","Yasmeen"),("Roaa","AyaK"),
+      ("Roaa","RolaA"),("Roaa","ArwaM"),
+      ("Roaa","GhadeF"),("Roaa","Ash"),
+      ("Roaa","ShaimaaG"),("Roaa","ArwaMoh"),
+      ("Roaa","Remonda"),("Roaa","RolaN"),
+      ("Roaa","Sarah"),("Roaa","MariamMaher"),
+      ("Roaa","Dimiana"),("Roaa","Clara"),
+      ("Roaa","AyaB"),("Roaa","Madona"),
+      ("Roaa","Shahd")]
+G.add_edges_from(Roaa)
+
+
+
+Rehab=[("Rehab","Rahma"),("Rehab","RaniaM"),
+       ("Rehab","Sama"),("Rehab","Salsabil"),
+       ("Rehab","Rawan"),("Rehab","GhadaH"),
+       ("Rehab","ShaimaaG"),("Rehab","Asmaa"),
+       ("Rehab","Reham"),("Rehab","Sarah"),
+       ("Rehab","Shrouk"),("Rehab","Aisha"),
+       ("Rehab","Nermeen")]
+G.add_edges_from(Rehab)
+
+
+
+Habiba=[("Habiba","Hadeer"),("Habiba","GhadaH"),
+        ("Habiba","Clara"),("Habiba","Shrouk"),
+        ("Habiba","AyaK"),("Habiba","ZaynabH"),
+        ("Habiba","GhadeF"),("Habiba","Salsabil"),
+        ("Habiba","ShaimaaG"),("Habiba","ShaimaaG"),
+        ("Habiba","MariamMahmod"),("Habiba","Esraa"),
+        ("Habiba","Remonda")]
+G.add_edges_from(Habiba)
+
+
+
+Sondos=[("Sondos","Hadeer"),("Sondos","Nehal"),
+        ("Sondos","DinaAh"),("Sondos","Santy"),
+        ("Sondos","Ardina"),("Sondos","RolaA"),
+        ("Sondos","ArwaM"),("Sondos","Manal"),
+        ("Sondos","Ash"),("Sondos","ShaimaaG"),
+        ("Sondos","ArwaMoh"),("Sondos","Remonda"),
+        ("Sondos","RolaN"),("Sondos","Sarah"),
+        ("Sondos","MariamMaher"),("Sondos","Clara"),
+        ("Sondos","AyaB"),("Sondos","AyaA")]
+G.add_edges_from(Sondos)
+
+
+
+#ده كود يخليكوا تشوفوا المحافظه فوق كل نود بس فيه ايرور بس شغال المهم ان ده بيظهر المحافظات والنودز من غير الايدجيز
+# Draw the graph with node labels and city attributes
+pos = nx.spring_layout(G)  # Positions for all nodes
+
+# Draw nodes with labels
+nx.draw_networkx_nodes(G, pos, node_size=500, node_color='lightblue', alpha=0.8)
+nx.draw_networkx_labels(G, pos, font_size=10, font_family='sans-serif')
+
+# Draw city attributes above the nodes
+node_labels = nx.get_node_attributes(G, 'city')
+for node, (x, y) in pos.items():
+    city = node_labels[node]
+    plt.text(x, y + 0.1, city, horizontalalignment='center', fontsize=8, color='red')
+
+# Draw edges
+nx.draw_networkx_edges(G, pos)
+
+# Display the plot
+plt.title("Network with Node Labels and City Attributes")
+plt.axis('off')  # Turn off the axis
+plt.show()
